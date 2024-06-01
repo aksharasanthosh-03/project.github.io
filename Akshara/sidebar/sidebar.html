@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"  href="style1.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Side barS</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="top">
+           <div class="logo">
+            <i class='bx bxl-graphql bx-spin' ></i>
+             <span>Comfify</span>
+           </div>
+            <i class='bx bx-menu' id="btn"></i>
+       </div>
+      <div class="user">
+      <img src="logo.png" alt="me" class="user-img">
+     <div>
+       <p class="bold">Hello Guest</p>
+     </div>
+   
+     </div>
+     <ul>
+       <li><a href="#"><i class='bx bxs-grid-alt bx-burst bx-rotate-90' ></i>
+       <span class="nav-item">Dashboard</span>
+     </a>
+     <span class="tooltip">Dashboard</span>
+   </li>
+   <li><a href="#"><i class='bx bxs-package bx-burst bx-flip-vertical' ></i>
+     <span class="nav-item">Orders</span>
+   </a>
+   <span class="tooltip">Orders</span>
+   </li>
+   <li><a href="#"><i class='bx bxs-cart bx-burst bx-flip-vertical' ></i>
+     <span class="nav-item">Cart</span>
+   </a>
+   <span class="tooltip">Cart</span>
+   </li>
+   
+   <li><a href="#"><i class='bx bx-barcode bx-flashing' ></i>
+     <span class="nav-item">History</span>
+   </a>
+   <span class="tooltip">History</span>
+   </li>
+   <li><a href="#"><i class='bx bxs-face bx-tada' ></i>
+     <span class="nav-item">Signup</span>
+   </a>
+   <span class="tooltip">Signup</span>
+   </li>
+   <li><a href="#"><i class='bx bxl-telegram bx-tada' ></i>
+     <span class="nav-item">Review</span>
+   </a>
+   <span class="tooltip">Review</span>
+   </li>
+   <li><a href="#"><i class='bx bxs-exit bx-flashing' ></i>
+     <span class="nav-item">Logout</span>
+   </a>
+   <span class="tooltip">Logout</span>
+   </li>
+     </ul>
+   </div>
+   
+    <div class="main-content">
+     <div class="container">
+        <h1>Comfify</h1>
+     </div>
+    </div>
+</body>
+<script>
+  
+    let btn = document.querySelector('#btn')
+    let sidebar=document.querySelector('.sidebar')
+    btn.onclick=function() {
+      sidebar.classList.toggle('active');
+    };
+  </script>
+</html>
