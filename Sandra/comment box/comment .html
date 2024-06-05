@@ -56,6 +56,163 @@
           margin: 5%;
         }
        }
+
+       @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+.user-img{
+    width:50px;
+    border-radius: 100%;
+    border: 1px solid #eee;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width:80px;
+    background-color: transparent;
+    
+    backdrop-filter: blur(5px);
+    padding: .4rem .8rem;
+    transition: all 0.5s ease;
+
+}
+
+
+.sidebar.active{
+    width:250px;
+}
+
+.sidebar #btn{
+   position: absolute; 
+   color: white;
+   top: .4rem;
+   left:50%;
+   font-size: 1.2rem ;
+   line-height: 50px;
+   transform :translate;
+   cursor:pointer;
+
+}
+
+.sidebar.active #btn{
+    left:90%;
+}
+
+.sidebar .top .logo{
+    color:white;
+    display: flex;
+    height: 50px;
+    width:100px;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.sidebar.active .top .logo{
+    opacity: 1;
+}
+
+.top .logo i{
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+.user{
+   color: flex;
+   align-items: center;
+   margin-left: 1rem 0;
+}
+
+.user p {
+    color: white;
+    opacity: 1;
+    margin-left: 1rem;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.sidebar p{
+    opacity: 0;
+}
+
+.sidebar.active p{
+    opacity: 1;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    color: white;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+.sidebar ul li a:hover{
+
+    background-color:#FEFFD2;
+
+  
+    color: black;
+}
+
+.sidebar ul li a i{
+   min-width:50px;
+   text-align:center;
+   height:50px;
+   border-radius:12px; 
+   line-height: 50px;
+}
+
+.sidebar .nav-item{
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+
+}
+
+.sidebar ul li .tooltip{
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    color: white;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar ul li:hover .tooltip{
+    opacity: 1;
+
+}
+
+.sidebar.active ul li .tooltip {
+        display: none;
+}
       </style>
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     </head>
@@ -70,6 +227,78 @@
           <button type="submit">Post comment</button>
         </form>
        </div>
+       
+       <div class="container3">
+        <div class="sidebar">
+            <div class="top">
+               <div class="logo">
+                <i class='bx bxl-graphql bx-spin' ></i>
+                 <span>Comfify</span>
+               </div>
+                <i class='bx bx-menu' id="btn"></i>
+           </div>
+          <div class="user">
+          <img src="logo.png" alt="me" class="user-img">
+         <div>
+           <p class="bold">Hello Guest</p>
+         </div>
+       
+         </div>
+         <ul>
+           <li><a href="#"><i class='bx bxs-grid-alt bx-burst bx-rotate-90' ></i>
+           <span class="nav-item">Dashboard</span>
+         </a>
+         <span class="tooltip">Dashboard</span>
+       </li>
+       <li><a href="#"><i class='bx bxs-package bx-burst bx-flip-vertical' ></i>
+         <span class="nav-item">Orders</span>
+       </a>
+       <span class="tooltip">Orders</span>
+       </li>
+       <li><a href="#"><i class='bx bxs-cart bx-burst bx-flip-vertical' ></i>
+         <span class="nav-item">Cart</span>
+       </a>
+       <span class="tooltip">Cart</span>
+       </li>
+       
+       <li><a href="#"><i class='bx bx-barcode bx-flashing' ></i>
+         <span class="nav-item">History</span>
+       </a>
+       <span class="tooltip">History</span>
+       </li>
+       <li><a href="#"><i class='bx bxs-face bx-tada' ></i>
+         <span class="nav-item">Signup</span>
+       </a>
+       <span class="tooltip">Signup</span>
+       </li>
+       <li><a href="#"><i class='bx bxl-telegram bx-tada' ></i>
+         <span class="nav-item">Review</span>
+       </a>
+       <span class="tooltip">Review</span>
+       </li>
+       <li><a href="#"><i class='bx bxs-exit bx-flashing' ></i>
+         <span class="nav-item">Logout</span>
+       </a>
+       <span class="tooltip">Logout</span>
+       </li>
+         </ul>
+       </div>
+       
+        <div class="main-content">
+         <div class="container1">
+         
+         </div>
+        </div>
     
-</body>
+</body> 
+
+<script>
+  
+  let btn = document.querySelector('#btn')
+  let sidebar=document.querySelector('.sidebar')
+  btn.onclick=function() {
+    sidebar.classList.toggle('active');
+  };
+</script>
+
 </html>
