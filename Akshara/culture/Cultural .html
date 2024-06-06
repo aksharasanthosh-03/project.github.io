@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="slider-container">
+      <div class="slider-images">
+        <div class="slider-img">
+          <img src="1.png" alt="1" />
+          <h1>SINHALESE </h1>
+          <div class="details">
+            <h2>SINHALESE PEOPLE</h2>
+            <p>The Sinhalese people are native to Sri Lanka and constitute about 75% of the Sri Lankan population. </p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="2.png" alt="2" />
+          <h1>THE SAMI</h1>
+          <div class="details">
+            <h2>THE SAMI</h2>
+            <p>The Sami are known as the last indigenous people of Europe. </p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="3.png" alt="3" />
+          <h1>THE HIMBA</h1>
+          <div class="details">
+            <h2>THE HIMBA</h2>
+            <p>This indigenous group live primarily in Northern Namibia in a semi-nomadic, pastoralist lifestyle.</p>
+          </div>
+        </div>
+        <div class="slider-img active">
+          <img src="4.png" alt="4" />
+          <h1>QUECHUA </h1>
+          <div class="details">
+            <h2>QUECHUA PEOPLE</h2>
+            <p>The Quechua people of the Andean highlands predate the famous Inca empire and still hold a strong sense of identity, evident from their characteristic dress and the survival of their ancient language, Quechua</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="5.png" alt="5" />
+          <h1>BERBERS</h1>
+          <div class="details">
+            <h2>BERBERS</h2>
+            <p>The Berbers are descendants of the pre-Arab population in North Africa, scattered across several countries </p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="6.png" alt="6" />
+          <h1>BAJAU PEOPLE</h1>
+          <div class="details">
+            <h2>BAJAU PEOPLE</h2>
+            <p>The Sama-Bajau, or ‘sea nomads’, are a collection of Austronesian tribes found throughout South East Asia</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="7.png" alt="7" />
+          <h1> NUBIANS</h1>
+          <div class="details">
+            <h2> NUBIANS</h2>
+            <p>The Nubians are descendants of one of the oldest civilizations in the world, traced back to 3500 BC</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="jQuery.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+  </body>
+</html>
