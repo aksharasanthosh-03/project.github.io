@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="slider-container">
+        <div class="slider-images">
+          <div class="slider-img">
+            <img src="1.png" alt="1" />
+            <h1>Paris</h1>
+            <div class="details">
+              <h2>Paris</h2>
+              <p>Where history, culture, and romance converge in the City of Light.</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="2.png" alt="2" />
+            <h1>Japan</h1>
+            <div class="details">
+              <h2>Japan</h2>
+              <p>A land of ancient traditions, cutting-edge technology, and unparalleled natural beauty.</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="3.png" alt="3" />
+            <h1>Maldives</h1>
+            <div class="details">
+              <h2>Maldives</h2>
+              <p> A tropical paradise of pristine beaches, crystal-clear waters, and luxury resorts nestled in the Indian Ocean.</p>
+            </div>
+          </div>
+          <div class="slider-img active">
+            <img src="4.png" alt="4" />
+            <h1>Hawaii</h1>
+            <div class="details">
+              <h2>Hawaii</h2>
+              <p>A paradise of volcanic landscapes, lush greenery, and laid-back island vibes in the heart of the Pacific Ocean.r</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="5.png" alt="5" />
+            <h1>Italy</h1>
+            <div class="details">
+              <h2>Italy</h2>
+              <p>A timeless mosaic of art, architecture, cuisine, and captivating landscapes, where history intertwines with modernity.</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="6.png" alt="6" />
+            <h1>South Korea</h1>
+            <div class="details">
+              <h2>South Korea</h2>
+              <p>A dynamic blend of ancient traditions, futuristic cities, K-pop culture, and culinary delights, nestled in the heart of East Asia.</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="7.png" alt="7" />
+            <h1>Canada</h1>
+            <div class="details">
+              <h2>Canada</h2>
+              <p>A country renowned for its exquisite cuisine, rich history, iconic landmarks, and timeless elegance, captivating visitors with its charm and sophistication.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <script src="jQuery.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+</body>
+</html>
