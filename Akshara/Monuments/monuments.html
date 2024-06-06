@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="slider-container">
+      <div class="slider-images">
+        <div class="slider-img">
+          <img src="1.png" alt="1" />
+          <h1>Great Wall of China</h1>
+          <div class="details">
+            <h2>Great Wall of China</h2>
+            <p>Great might be an understatement. One of the world’s largest building-construction</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="2.png" alt="2" />
+          <h1>Chichén Itzá</h1>
+          <div class="details">
+            <h2>Chichén Itzá</h2>
+            <p>Chichén Itzá is home to the largest tlachtli (a type of sporting field) in the Americas. </p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="3.png" alt="3" />
+          <h1>Petra</h1>
+          <div class="details">
+            <h2>Petra</h2>
+            <p>The ancient city of Petra, Jordan, is located in a remote valley, nestled among sandstone mountains and cliffs. </p>
+          </div>
+        </div>
+        <div class="slider-img active">
+          <img src="4.png" alt="4" />
+          <h1>Machu Picchu</h1>
+          <div class="details">
+            <h2>Machu Picchu</h2>
+            <p>This Incan site near Cuzco, Peru, was “discovered” in 1911 by Hiram Bingham, who believed it was Vilcabamba</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="5.png" alt="5" />
+          <h1>Christ the Redeemer</h1>
+          <div class="details">
+            <h2>Christ the Redeemer</h2>
+            <p>Christ the Redeemer, a colossal statue of Jesus, stands atop Mount Corcovado in Rio de Janeiro. </p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="6.png" alt="6" />
+          <h1>Colosseum</h1>
+          <div class="details">
+            <h2>Colosseum</h2>
+            <p>The Colosseum in Rome was built in the first century by order of the Emperor Vespasian. </p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="7.png" alt="7" />
+          <h1>Taj Mahal</h1>
+          <div class="details">
+            <h2>Taj Mahal</h2>
+            <p>This mausoleum complex in Agra, India, is regarded as one of the world’s most iconic monuments and is perhaps the finest</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="jQuery.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+  </body>
+</html>
