@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Component</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <h1>VIP Membership</h1>
+    <div class="toggle">
+      <label> Monthly </label>
+      <div class="toggle-btn">
+        <input type="checkbox" class="checkbox" id="checkbox" />
+        <label class="sub" id="sub" for="checkbox">
+          <div class="circle"></div>
+        </label>
+      </div>
+      <label> Yearly </label>
+    </div>
+    <div class="currency-switcher">
+      <button id="switch-currency">Switch to INR</button>
+    </div>
+  </header>
+
+  <div class="cards">
+    <div class="card shadow">
+      <ul>
+        <li class="pack">Basic</li>
+        <li id="basic" class="price bottom-bar">$199.99</li>
+        <li class="bottom-bar">Latest Updates</li>
+        <li class="bottom-bar">Free Pass To Limited Clubs</li>
+        <li class="bottom-bar">Offers And Coupons</li>
+        <li><button class="btn">Learn More</button></li>
+      </ul>
+    </div>
+    <div class="card active">
+      <ul>
+        <li class="pack">Advanced</li>
+        <li id="professional" class="price bottom-bar">$249.99</li>
+        <li class="bottom-bar">Discounts And Coupons For Booking</li>
+        <li class="bottom-bar">Unlimited Transportation Access</li>
+        <li class="bottom-bar">Unlimited Suggestion</li>
+        <li><button class="btn active-btn">Learn More</button></li>
+      </ul>
+    </div>
+    <div class="card shadow">
+      <ul>
+        <li class="pack">Premium</li>
+        <li id="master" class="price bottom-bar">$399.99</li>
+        <li class="bottom-bar">Premium Booking Facilities</li>
+        <li class="bottom-bar">Discounts For Premium for Family</li>
+        <li class="bottom-bar">Features is accessable upto 10 members</li>
+        <li><button class="btn">Learn More</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="color: rgb(91, 101, 117); font-size: 20px; margin: 50px 0px;">Copyright © 2024 COMFIFY PVT LTD</p>
+
+  <script>
+    const checkbox = document.getElementById("checkbox");
+    const currencySwitchBtn = document.getElementById("switch-currency");
+    const professional = document.getElementById("professional");
+    const master = document.getElementById("master");
+    const basic = document.getElementById("basic");
+
+    const pricesUSD = {
+      basic: 199.99,
+      professional: 249.99,
+      master: 399.99,
+    };
+
+    const pricesINR = {
+      basic: 14999.99,
+      professional: 18999.99,
+      master: 29999.99,
+    };
+
+    let currentCurrency = 'usd';
+
+    const updatePrices = () => {
+      const prices = currentCurrency === 'usd' ? pricesUSD : pricesINR;
+      basic.textContent = currentCurrency === 'usd' ? `$${prices.basic}` : `₹${prices.basic.toFixed(2)}`;
+      professional.textContent = currentCurrency === 'usd' ? `$${prices.professional}` : `₹${prices.professional.toFixed(2)}`;
+      master.textContent = currentCurrency === 'usd' ? `$${prices.master}` : `₹${prices.master.toFixed(2)}`;
+    };
+
+    checkbox.addEventListener("click", () => {
+      const prices = currentCurrency === 'usd' ? pricesUSD : pricesINR;
+      basic.textContent = basic.textContent.includes('$') || basic.textContent.includes('₹')
+        ? basic.textContent.includes('$')
+          ? `$${(prices.basic / 10).toFixed(2)}`
+          : `₹${(prices.basic / 10).toFixed(2)}`
+        : basic.textContent.includes('$')
+          ? `$${prices.basic}`
+          : `₹${prices.basic.toFixed(2)}`;
+
+      professional.textContent = professional.textContent.includes('$') || professional.textContent.includes('₹')
+        ? professional.textContent.includes('$')
+          ? `$${(prices.professional / 10).toFixed(2)}`
+          : `₹${(prices.professional / 10).toFixed(2)}`
+        : professional.textContent.includes('$')
+          ? `$${prices.professional}`
+          : `₹${prices.professional.toFixed(2)}`;
+
+      master.textContent = master.textContent.includes('$') || master.textContent.includes('₹')
+        ? master.textContent.includes('$')
+          ? `$${(prices.master / 10).toFixed(2)}`
+          : `₹${(prices.master / 10).toFixed(2)}`
+        : master.textContent.includes('$')
+          ? `$${prices.master}`
+          : `₹${prices.master.toFixed(2)}`;
+    });
+
+    currencySwitchBtn.addEventListener("click", () => {
+      currentCurrency = currentCurrency === 'usd' ? 'inr' : 'usd';
+      currencySwitchBtn.textContent = currentCurrency === 'usd' ? 'Switch to INR' : 'Switch to USD';
+      updatePrices();
+    });
+
+    // Initial price update
+    updatePrices();
+    // Updated the click event listener for the checkbox
+checkbox.addEventListener("click", () => {
+  const prices = currentCurrency === 'usd' ? pricesUSD : pricesINR;
+  basic.textContent = basic.textContent.includes('$') || basic.textContent.includes('₹')
+    ? basic.textContent.includes('$')
+      ? `$${(prices.basic / 10).toFixed(0)}`
+      : `₹${(prices.basic / 10).toFixed(2)}`
+    : basic.textContent.includes('$')
+      ? `$${prices.basic}`
+      : `₹${prices.basic.toFixed(2)}`;
+
+  professional.textContent = professional.textContent.includes('$') || professional.textContent.includes('₹')
+    ? professional.textContent.includes('$')
+      ? `$${(prices.professional / 10).toFixed(0)}`
+      : `₹${(prices.professional / 10).toFixed(2)}`
+    : professional.textContent.includes('$')
+      ? `$${prices.professional}`
+      : `₹${prices.professional.toFixed(2)}`;
+
+  master.textContent = master.textContent.includes('$') || master.textContent.includes('₹')
+    ? master.textContent.includes('$')
+      ? `$${(prices.master / 10).toFixed(0)}`
+      : `₹${(prices.master / 10).toFixed(2)}`
+    : master.textContent.includes('$')
+      ? `$${prices.master}`
+      : `₹${prices.master.toFixed(2)}`;
+});
+
+  </script>
+</body>
+
+</html>
