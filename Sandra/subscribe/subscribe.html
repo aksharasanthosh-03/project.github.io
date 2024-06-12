@@ -4,17 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscribe</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css" integrity="sha512-Hp+WwK4QdKZk9/W0ViDvLunYjFrGJmNDt6sCflZNkjgvNq9mY+0tMbd6tWMiAlcf1OQyqL4gn2rYp7UsfssZPA==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"/>"
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css" integrity="sha512-Hp+WwK4QdKZk9/W0ViDvLunYjFrGJmNDt6sCflZNkjgvNq9mY+0tMbd6tWMiAlcf1OQyqL4gn2rYp7UsfssZPA==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"/>
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
     <div class="Subscribe-box">
-      <h1>Subscribe Now</h1>
-      <span>Get notified about the next update</span>
-      <form action="#">
-        <input type="email" name="email_address" placeholder="Email_Address">
-        <button>Subscribe</button>
-      </form>
-</div>
+        <h1>Subscribe Now</h1>
+        <span>Get notified about the next update</span>
+        <hr>
+        <form action="#" id="subscribe-form">
+            <input type="email" name="email_address" placeholder="Email_Address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <img src="img2.png" alt="Subscription Image" id="popup-image">
+            <p>You are subscribed!</p>
+            <button id="close-popup">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
