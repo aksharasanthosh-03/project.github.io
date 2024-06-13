@@ -13,7 +13,7 @@
 
 <div class="container">
 
-    <form action="">
+    <form id="paymentForm">
 
         <div class="row">
 
@@ -82,12 +82,17 @@
                         <input type="text" placeholder="1234">
                     </div>
                 </div>
-                
+
+            </div>
+
+            <div class="col">
+
+                <h3 class="title">UPI Payment</h3>
+
                 <div class="inputBox1">
-                    <span>Upi Accepted :</span>
+                    <span>UPI Accepted :</span>
                     <img src="images.jpeg" alt="">
                 </div>
-
                 <div class="inputBox">
                     <span>UPI ID :</span>
                     <input type="text" placeholder="example@upi">
@@ -96,13 +101,26 @@
             </div>
     
         </div>
+        
         <img src="img1.png" alt="Description of image" class="centered-img">
 
         <input type="submit" value="Proceed to Checkout" class="submit-btn">
 
     </form>
 
-</div>    
+</div> 
+
+<!-- The Modal -->
+<div id="popupModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img src="img2.png" alt="Description of image" class="centered-img">
+    <p>Payment Done successfully!😁</p>
+   <a href="https://aksharasanthosh-03.github.io/project.github.io/index.html"> <button id="okButton">OK</button></a>
+  </div>
+</div>
+
+<script src="script.js"></script>
     
 </body>
 </html>
