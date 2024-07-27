@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="init()">
+<body>
   <button id="chat-toggle" class="chat-toggle"><i class="fas fa-comments"></i> Chat 🤖</button>
   <div id="chat-container" class="chat-container">
     <div id="chat-header" class="chat-header">
@@ -16,13 +16,12 @@
     </div>
     <div id="chat-body" class="chat-body">
       <div id="msg" class="msg"></div>
+    </div>
+    <div class="chat-footer">
+      <p>"Choose your option to converse With Comfy:"</p>
       <div id="options" class="options">
         <!-- Options will be dynamically added here -->
       </div>
-    </div>
-    <div class="chat-footer">
-      <input type="text" id="msg_send" class="msg-send" placeholder="Type your message...">
-      <button id="send-btn" class="send-btn" onclick="sendMessage()">Send <i class="fas fa-paper-plane"></i></button>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>

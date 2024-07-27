@@ -22,14 +22,6 @@ const options = [
 
 let chatInitialized = false;
 
-function init() {
-  if (!chatInitialized) {
-    setTimeout(() => displayMessage("Hello! How can I assist you today?", "bot"), 1000);
-    setTimeout(showOptions, 1000);
-    chatInitialized = true;
-  }
-}
-
 function showOptions() {
   const optionsContainer = document.getElementById('options');
   optionsContainer.innerHTML = "";
@@ -89,7 +81,11 @@ function sendMessage() {
 // Toggle chatbot visibility
 document.getElementById('chat-toggle').addEventListener('click', function() {
   document.getElementById('chat-container').classList.toggle('chat-open');
-  init();
+  if (!chatInitialized) {
+    setTimeout(() => displayMessage("Hello! How can I assist you today?", "bot"), 1000);
+    setTimeout(showOptions, 1000);
+    chatInitialized = true;
+  }
 });
 
 // Close chatbot
@@ -103,5 +99,3 @@ document.getElementById('msg_send').addEventListener('keypress', function(e) {
     sendMessage();
   }
 });
-
-init();

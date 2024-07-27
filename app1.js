@@ -5,8 +5,11 @@ const predefinedResponses = {
   "what is your name": "I'm Comfy, your friendly chatbot.",
   "bye": "Goodbye! Have a great day!",
   "about us": "Comfify offers reliable travel and booking services to help travelers find safe and suitable deals.",
-  "our services": "Our services include transportation, hotel booking discounts, tourist guides, and more.",
-  "help": "Fill our contact us form to get helped by our Experts",
+  "our services":"Our services include transportation, hotel booking discounts, tourist guides, and more.",
+  "get services":' Click Here to <a href="https://aksharasanthosh-03.github.io/project.github.io/Akshara/Booking/booking.html"> Book </a> to get services provided by us  ',
+  "blogs":' Click Here to <a href="https://aksharasanthosh-03.github.io/project.github.io/Akshara/destination/destination.html"> Blogs </a> to decide your next trip. ',
+  "help": 'Fill our <a href="https://aksharasanthosh-03.github.io/project.github.io/Sandra/contact/contact.html">Contact Us</a> form to get helped by our Experts',
+  "feedback": 'Fill our <a href="https://aksharasanthosh-03.github.io/project.github.io/Sandra/comment%20box/comment%20.html">Feedback</a> to share your feedback.',
 };
 
 const options = [
@@ -17,18 +20,13 @@ const options = [
   "Bye",
   "About Us",
   "Our Services",
+  "Get Services",
+  "Blogs",
+  "Feedback",
   "Help",
 ];
 
 let chatInitialized = false;
-
-function init() {
-  if (!chatInitialized) {
-    setTimeout(() => displayMessage("Hello! How can I assist you today?", "bot"), 1000);
-    setTimeout(showOptions, 1000);
-    chatInitialized = true;
-  }
-}
 
 function showOptions() {
   const optionsContainer = document.getElementById('options');
@@ -38,7 +36,7 @@ function showOptions() {
     button.innerText = option;
     button.classList.add('option-btn');
     button.addEventListener('click', () => {
-      setTimeout(() => handleUserInput(option.toLowerCase()), 1000);
+      handleUserInput(option.toLowerCase());
     });
     optionsContainer.appendChild(button);
   });
@@ -47,7 +45,7 @@ function showOptions() {
 function handleUserInput(req) {
   if (!req) return;
 
-  setTimeout(() => displayMessage(req, "user"), 1000);
+  displayMessage(req, "user");
 
   let res;
   if (predefinedResponses[req]) {
@@ -58,14 +56,19 @@ function handleUserInput(req) {
 
   setTimeout(() => displayMessage(res, "bot"), 1000);
 
-  document.getElementById('msg_send').value = "";
   scrollToBottom();
 }
 
 function displayMessage(message, sender) {
   const msgContainer = document.getElementById('msg');
   const msgElement = document.createElement('div');
-  msgElement.textContent = message;
+  
+  if (sender === 'bot') {
+    msgElement.innerHTML = message; // Use innerHTML to render HTML content
+  } else {
+    msgElement.textContent = message;
+  }
+
   msgElement.classList.add('msg-item');
   msgElement.classList.add(`msg-item-${sender}`);
   msgContainer.appendChild(msgElement);
@@ -78,30 +81,17 @@ function scrollToBottom() {
   msgContainer.scrollTop = msgContainer.scrollHeight;
 }
 
-function sendMessage() {
-  const msgInput = document.getElementById('msg_send');
-  const req = msgInput.value.trim().toLowerCase();
-  handleUserInput(req);
-
-  msgInput.value = ""; // Clear input after sending message
-}
-
 // Toggle chatbot visibility
 document.getElementById('chat-toggle').addEventListener('click', function() {
   document.getElementById('chat-container').classList.toggle('chat-open');
-  init();
+  if (!chatInitialized) {
+    setTimeout(() => displayMessage("Hello! How can I assist you today?", "bot"), 1000);
+    setTimeout(showOptions, 1000);
+    chatInitialized = true;
+  }
 });
 
 // Close chatbot
 document.getElementById('chat-close').addEventListener('click', function() {
   document.getElementById('chat-container').classList.remove('chat-open');
 });
-
-// Event listener for Enter key press
-document.getElementById('msg_send').addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
-    sendMessage();
-  }
-});
-
-init();
