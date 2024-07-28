@@ -44,11 +44,35 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 3000); // Hide after 3 seconds
     }
 
+    // Function to validate the form
+    function validateForm(form) {
+        const name = form.querySelector('input[type="text"]').value.trim();
+        const email = form.querySelector('input[type="email"]').value.trim();
+        const rating = form.querySelector('input[type="text"][placeholder="Rating (From 0 to 5)"]').value.trim();
+        const comment = form.querySelector('textarea').value.trim();
+
+        if (!name || !email || !rating || !comment) {
+            alert("Please fill in all fields.");
+            return false;
+        }
+
+        const ratingValue = parseFloat(rating);
+        if (isNaN(ratingValue) || ratingValue < 0 || ratingValue > 5) {
+            alert("Please enter a valid rating between 0 and 5.");
+            return false;
+        }
+
+        return true;
+    }
+
     // Add event listener to the form submission
     const commentForm = document.querySelector(".comment-form"); // Use querySelector to match the class
     commentForm.addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent actual form submission
-        showPopup();
+
+        if (validateForm(commentForm)) {
+            showPopup();
+        }
     });
 
     // Sidebar toggle functionality
